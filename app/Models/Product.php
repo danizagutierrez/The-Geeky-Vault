@@ -26,7 +26,8 @@ class Product extends Model
             "name" => "required|max:255",
             "description" => "required",
             "price" => "required|numeric|gt:0",
-            'image' => 'image',
+            'qty_instock' => 'required|numeric|gte:0',
+            'rating' => 'required|numeric|gte:0'
         ]);
     }
 
@@ -60,16 +61,6 @@ class Product extends Model
         $this->attributes['description'] = $description;
     }
 
-    public function getImage()
-    {
-        return $this->attributes['image'];
-    }
-
-    public function setImage($image)
-    {
-        $this->attributes['image'] = $image;
-    }
-
     public function getPrice()
     {
         return $this->attributes['price'];
@@ -78,6 +69,21 @@ class Product extends Model
     public function setPrice($price)
     {
         $this->attributes['price'] = $price;
+    }
+
+    public function getQtyInstock()
+    {
+        return $this->attributes['qty_instock'];
+    }
+
+    public function setQtyInstock($qty)
+    {
+        $this->attributes['qty_instock'] = $qty;
+    }
+
+    public function getRating()
+    {
+        return $this->attributes['rating'];
     }
 
     public function getCreatedAt()

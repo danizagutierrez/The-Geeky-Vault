@@ -32,9 +32,10 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'username',
         'email',
         'password',
+        'address',
         'balance',
     ];
 
@@ -115,6 +116,16 @@ class User extends Authenticatable
     public function setBalance($balance)
     {
         $this->attributes['balance'] = $balance;
+    }
+
+    public function getAddress()
+    {
+        return $this->attributes['address'];
+    }
+
+    public function setAddress($address)
+    {
+        $this->attributes['address'] = $address;
     }
 
     public function getCreatedAt()
