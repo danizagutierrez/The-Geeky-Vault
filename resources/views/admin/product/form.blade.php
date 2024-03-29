@@ -1,4 +1,4 @@
-@section('add_form')
+@section('form')
 <div class="card mb-4">
   <div class="card-header">
     Create Products
@@ -12,7 +12,7 @@
     </ul>
     @endif
 
-    <form method="POST" action="{{route('admin.product.store')}}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('admin.product.store') }}" enctype="multipart/form-data">
       @csrf
       <div class="row">
         <div class="col">

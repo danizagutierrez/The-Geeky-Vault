@@ -1,8 +1,8 @@
 @extends('layouts.admin')
-@include('admin.product.add_form')
+@include('admin.product.form')
 @section('title', $viewData["title"])
 @section('content')
-@yield('add_form')
+@yield('form')
 <div class="card">
   <div class="card-header">
     Manage Products

@@ -4,28 +4,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" 
-    integrity="sha384-eoTu3+HydHRBIjnCVwsFyCpUDZHZSFKEJD0mc3ZqSBSb6YhZzRHeiomAUWCstIWo" crossorigin="anonymous">
-  <link href="{{asset ('/css/admin.css')}}" rel="stylesheet" />
-  <title></title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link href="{{ asset('/css/admin.css') }}" rel="stylesheet" />
+  <title>@yield('title', 'Admin - CSIS 3280 Online Store')</title>
 </head>
 
 <body>
   <div class="row g-0">
     <!-- sidebar -->
     <div class="p-3 col fixed text-white bg-dark">
-      <a href="" class="text-white text-decoration-none">
+      <a href="{{ route('admin.home.index') }}" class="text-white text-decoration-none">
         <span class="fs-4">Admin Panel</span>
       </a>
       <hr />
       <ul class="nav flex-column">
-        <li><a href="{{route('admin.home.index')}}" class="nav-link text-white">Admin - Home</a></li>
-        <li><a href="{{route('admin.product.index')}}" class="nav-link text-white">Admin - Products</a></li>
+        <li><a href="{{ route('admin.home.index') }}" class="nav-link text-white">Admin - Home</a></li>
+        <li><a href="{{ route('admin.product.index') }}" class="nav-link text-white">Admin - Products</a></li>
         <li>
-          <a href="{{route('home.index')}}" class="mt-2 btn bg-primary text-white">Go back to the home page</a>
+          <a href="{{ route('home.index') }}" class="mt-2 btn bg-primary text-white">Go back to the home page</a>
         </li>
       </ul>
     </div>
@@ -33,7 +31,7 @@
     <div class="col content-grey">
       <nav class="p-3 shadow text-end">
         <span class="profile-font">Admin</span>
-        <img class="img-profile rounded-circle" src="{{asset('/img/undraw_profile.svg')}}">
+        <img class="img-profile rounded-circle" src="{{ asset('/img/undraw_profile.svg') }}">
       </nav>
 
       <div class="g-0 m-5">
@@ -55,7 +53,6 @@
   </div>
   <!-- footer -->
 
-  <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   
