@@ -42,6 +42,7 @@
                     @endguest
 
 
+                    <a class="nav-link active" href="{{ route('user.cart') }}">Cart</a>
                 </div>
             </div>
         </div>
