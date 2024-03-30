@@ -23,9 +23,11 @@ class AdminProductController extends Controller
         Product::validate($request);
 
         $newProduct = new Product();
-        $newProduct->setName($request->input('name'));
-        $newProduct->setDescription($request->input('description'));
+        $newProduct->setName($request->input('product_name'));
+        $newProduct->setDescription($request->input('product_description'));
         $newProduct->setPrice($request->input('price'));
+        $newProduct->setRating($request->input('rating'));
+        $newProduct->setQtyInstock($request->input('qty_instock'));
         $newProduct->setImage("game.png");
         $newProduct->save();
 
@@ -60,9 +62,11 @@ class AdminProductController extends Controller
         Product::validate($request);
 
         $product = Product::findOrFail($id);
-        $product->setName($request->input('name'));
-        $product->setDescription($request->input('description'));
+        $product->setName($request->input('product_name'));
+        $product->setDescription($request->input('product_description'));
         $product->setPrice($request->input('price'));
+        $product->setRating($request->input('rating'));
+        $product->setQtyInstock($request->input('qty_instock'));
 
         if ($request->hasFile('image')) {
             $imageName = $product->getId().".".$request->file('image')->extension();

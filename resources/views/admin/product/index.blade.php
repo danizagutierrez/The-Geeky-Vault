@@ -13,6 +13,7 @@
         <tr>
           <th scope="col">ID</th>
           <th scope="col">Name</th>
+          <th scope="col">Qty in Stock</th>
           <th scope="col">Edit</th>
           <th scope="col">Delete</th>
         </tr>
@@ -22,6 +23,7 @@
         <tr>
           <td>{{ $product->getId() }}</td>
           <td>{{ $product->getName() }}</td>
+          <td>{{ $product->getQtyInstock() }}
           <td>
             <a class="btn btn-primary" 
               href="{{route('admin.product.edit', ['id'=> $product->getId()])}}">

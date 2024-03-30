@@ -94,6 +94,10 @@ class Product extends Model
     {
         return $this->attributes['rating'];
     }
+    public function setRating($rating)
+    {
+        $this->attributes['rating'] = $rating;
+    }
 
     public function getCreatedAt()
     {
