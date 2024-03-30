@@ -23,8 +23,9 @@ class Product extends Model
     public static function validate($request)
     {
         $request->validate([
-            "name" => "required|max:255",
-            "description" => "required",
+            "product_name" => "required|max:255",
+            "product_description" => "required",
+            "image"=> "required",
             "price" => "required|numeric|gt:0",
             'qty_instock' => 'required|numeric|gte:0',
             'rating' => 'required|numeric|gte:0'
@@ -43,22 +44,30 @@ class Product extends Model
 
     public function getName()
     {
-        return $this->attributes['name'];
+        return $this->attributes['product_name'];
     }
 
     public function setName($name)
     {
-        $this->attributes['name'] = $name;
+        $this->attributes['product_name'] = $name;
     }
 
     public function getDescription()
     {
-        return $this->attributes['description'];
+        return $this->attributes['product_description'];
     }
 
     public function setDescription($description)
     {
-        $this->attributes['description'] = $description;
+        $this->attributes['product_description'] = $description;
+    }
+    public function getImage()
+    {
+        return $this->attributes['image'];
+    }
+    public function setImage($image)
+    {
+        $this->attributes['image'] = $image;
     }
 
     public function getPrice()
