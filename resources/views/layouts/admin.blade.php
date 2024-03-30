@@ -46,8 +46,8 @@
       <small>
         Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank"
           href="https://twitter.com/danielgarax">
-          Daniel Correa
-        </a> - <b>Paola Vallejo</b>
+          Daniza
+        </a> - <b>Arthur</b> - <b>Moises</b>
       </small>
     </div>
   </div>

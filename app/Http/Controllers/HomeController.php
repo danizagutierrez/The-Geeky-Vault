@@ -16,8 +16,8 @@ class HomeController extends Controller
   {
     $viewData = [];
     $viewData["title"] = "About us - The Geeky Vault";
-    $viewData["subtitle"] =  "About us";
-    $viewData["description"] =  "This is an about page for the The Geeky Vault";
+    $viewData["subtitle"] =  "About us - The Geeky Vault";
+    $viewData["description"] =  "This is an about page for the The Geeky Vault Project. This project is for the CSIS3280 course at Douglas College.";
     $viewData["author"] = "Developed by: Daniza, Arthur, Moises";
     return view('home.about')->with("viewData", $viewData);
     
