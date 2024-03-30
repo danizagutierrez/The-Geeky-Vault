@@ -1,4 +1,4 @@
-USE online_store
+USE geeky_store
 INSERT INTO products (id, product_name, product_description, image, price, qty_instock, rating, created_at, updated_at) VALUES (NULL, 'Quantum Flux Capacitor', 'A device capable of bending the space-time continuum.', 'game.png', '199.99','25','4', '2021-10-01
 00:00:00', '2021-10-01 00:00:00');
 INSERT INTO products (id, product_name, product_description, image, price, qty_instock, rating, created_at, updated_at) VALUES (NULL, 'Plasma Rifle', 'A weapon of mass destruction.', 'game.png', '299.99','10','5', '2021-10-01 00:00:00', '2021-10-01 00:00:00');
