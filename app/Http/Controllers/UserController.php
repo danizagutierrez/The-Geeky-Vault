@@ -12,8 +12,8 @@ class UserController extends Controller
     public function cart(){
 
         $viewData = [];
-        $viewData["title"] = "Admin Page - Products - CSIS3280 Online Store";
-        $viewData["subtitle"] = "This is a test";
+        $viewData["title"] = "Admin Page - Products - The Geeky Vault";
+        $viewData["subtitle"] = "Geeky Vault - Products";
         $viewData["products"] = Product::all();
         return view('user.cart')->with("viewData", $viewData);
     }
