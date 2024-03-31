@@ -7,6 +7,12 @@
   <div class="card-header">
     Your cart!
   </div>
+
+  @if($viewData["cart"]->isEmpty())
+  <div class="card-body">
+    <p>No items in the cart.</p>
+  </div>
+  @else
   <div class="card-body">
     <table class="table table-bordered table-striped">
       <thead>
@@ -26,7 +32,7 @@
           <td>{{ $cartItem->order_qty }}</td>
           <td>{{ $cartItem->product->price }}</td>
           <td>
-            <form action="{{ route('admin.product.delete', ['id' => $cartItem->id]) }}" method="POST">
+            <form action="{{ route('user.product.delete', ['id' => $cartItem->id]) }}" method="POST">
               @csrf
               @method('DELETE')
               <button class="btn btn-danger">
@@ -38,15 +44,16 @@
         @endforeach
       </tbody>
     </table>
+    
     <form action="{{ route('user.checkout') }}" method="POST">
               @csrf
-              @method('DELETE')
-              <button class="btn btn-danger">
-                <i class="bi-trash">Check out</i>
+              <button class="btn btn-success">
+                <i class="bi-cash"> Check out</i>
               </button>
     </form>
 
   </div>
+  @endif
 </div>
 @endsection
 
