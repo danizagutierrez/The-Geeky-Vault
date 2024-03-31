@@ -59,13 +59,13 @@
                 @endforeach
               </tbody>
             </table>
+            <div class="card-footer">
+              <form id="logout" action="{{route('logout')}}" method="POST">
+                <a role="button" class="btn btn-danger" id="logout" onclick="getElementById('logout').submit();">Logout </a>
+                @csrf
+              </form>
+            </div>
           </div>          
-          <div class="card-footer">
-            <form id="logout" action="{{route('logout')}}" method="POST">
-              <a role="button" class="btn btn-danger" id="logout" onclick="getElementById('logout').submit();">Logout </a>
-              @csrf
-            </form>
-          </div>
         </div>
       </div>
     </div>

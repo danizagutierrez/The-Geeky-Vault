@@ -31,7 +31,6 @@ class Cart extends Model
         ]);
     }
 
-
     public function getUserId()
     {
         return $this->attributes['user_id'];
