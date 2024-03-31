@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order_items extends Model
 {
-    use HasFactory;
+    public static function validate($request)
+    {
+        $request->validate([
+            "product_id" => "",
+            "order_qty" => "",
+            "total_amount" => "",
+        ]);
+    }
 }

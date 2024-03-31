@@ -1,33 +1,32 @@
 @extends('layouts.app')
+
 @section('title', $viewData["title"])
+
 @section('content')
 <div class="card">
   <div class="card-header">
-    Manage Products
+    Your cart!
   </div>
   <div class="card-body">
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
           <th scope="col">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Edit</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Order Quantity</th>
+          <th scope="col">Price</th>
           <th scope="col">Delete</th>
         </tr>
       </thead>
       <tbody>
-        @foreach ($viewData["products"] as $product)
+        @foreach ($viewData["cart"] as $cartItem)
         <tr>
-          <td>{{ $product->getId() }}</td>
-          <td>{{ $product->getName() }}</td>
+          <td>{{ $cartItem->id }}</td>
+          <td>{{ $cartItem->product->product_name }}</td>
+          <td>{{ $cartItem->order_qty }}</td>
+          <td>{{ $cartItem->product->price }}</td>
           <td>
-            <a class="btn btn-primary" 
-              href="{{route('admin.product.edit', ['id'=> $product->getId()])}}">
-              <i class="bi-pencil"></i>
-            </a>
-          </td>
-          <td>
-            <form action="{{ route('admin.product.delete', $product->getId())}}" method="POST">
+            <form action="{{ route('admin.product.delete', ['id' => $cartItem->id]) }}" method="POST">
               @csrf
               @method('DELETE')
               <button class="btn btn-danger">
@@ -39,8 +38,17 @@
         @endforeach
       </tbody>
     </table>
+    <form action="{{ route('user.checkout') }}" method="POST">
+              @csrf
+              @method('DELETE')
+              <button class="btn btn-danger">
+                <i class="bi-trash">Check out</i>
+              </button>
+    </form>
+
   </div>
 </div>
 @endsection
+
 
 

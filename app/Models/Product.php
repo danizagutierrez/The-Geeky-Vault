@@ -20,6 +20,11 @@ class Product extends Model
 {
     //use HasFactory;  
 
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
+
     public static function validate($request)
     {
         $request->validate([
