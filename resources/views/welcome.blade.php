@@ -2,6 +2,6 @@
 @section('title', 'Home Page - Online Store')
 @section('content')
 <div class="text-center">
-Welcome to the application
+Welcome to the Geeky Vault Online Store!
 </div>
 @endsection
