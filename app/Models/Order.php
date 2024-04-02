@@ -5,16 +5,28 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Orders extends Model
+class Order extends Model
 {
-    // use HasFactory;
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function items()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+
+
+    protected $fillable = ['user_id', 'order_date', 'order_status', 'total_amount']; // Allow mass assignment for these fields
 
     public static function validate($request)
     {
         $request->validate([
-            "order_date" => "",
-            "order_status" => "",
-            "total_amount" => "",
+            "user_id" => "required",
+            "order_date" => "required",
+            "order_status" => "required",
+            "total_amount" => "required|numeric",
         ]);
     }
 
@@ -37,25 +49,4 @@ class Orders extends Model
     {
         return $this->attributes['total_amount'];
     }
-
-    public function getCreatedAt()
-    {
-        return $this->attributes['created_at'];
-    }
-
-    public function setCreatedAt($createdAt)
-    {
-        $this->attributes['created_at'] = $createdAt;
-    }
-
-    public function getUpdatedAt()
-    {
-        return $this->attributes['updated_at'];
-    }
-
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->attributes['updated_at'] = $updatedAt;
-    }
-
 }

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Users;
 use App\Models\Cart;
+use App\Models\Order;
+use App\Models\OrderItem;
 
 class UserController extends Controller
 {
@@ -47,9 +49,53 @@ class UserController extends Controller
         return back();
     }
 
+    // public function checkout(){
+
+    //     $viewData = [];
+    //     $viewData["title"] = "The Geeky Vault";
+    //     $viewData["subtitle"] = "Your order is ready!";
+    //     // Retrieve cart items
+    //     $cartItems = auth()->user()->cart()->get();
+
+    //     // Copy cart items to viewData
+    //     $viewData["cart"] = $cartItems;
+
+    //     // Clear the cart
+    //     foreach ($cartItems as $cartItem) {
+    //         $cartItem->delete();
+    //     }
+
+    //     return view('user.checkout')->with("viewData", $viewData);
+    // }
+
     public function checkout(){
+        $user = auth()->user();
+    
+        // Create a new order
+        $order = new Order();
+        $order->user()->associate($user);
+        $order->save();
+    
+        // Retrieve cart items
+        $cartItems = $user->cart()->get();
+    
+        // Transfer cart items to order items
+        foreach ($cartItems as $cartItem) {
+            $orderItem = new OrderItem();
+            $orderItem->order()->associate($order);
+            $orderItem->product()->associate($cartItem->product);
+            $orderItem->quantity = $cartItem->order_qty;
+            $orderItem->save();
+            
+            // Optionally, you may want to delete cart items here
+            $cartItem->delete();
+        }
 
+        $title = "The Geeky Vault";
+        $subtitle = "Your order is ready!";
 
-
+    
+        return view('user.checkout', compact('order', 'title', 'subtitle'));
     }
+    
 }
