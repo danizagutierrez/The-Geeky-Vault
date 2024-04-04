@@ -1,5 +1,4 @@
 @extends('layouts.admin')
-
 @section('title', $viewData["title"])
 @section('content')
 <div class="card">
@@ -21,7 +20,6 @@
             <p>Admin Name: {{ Auth::user()->name }}</p>
             <p>Admin Email: {{ Auth::user()->email }}</p>
           </div>
-          <!-- creating a table with all users created-->
           <div class="card">
             <table class="table">
               <thead>
@@ -34,8 +32,10 @@
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Balance</th>  
-                    <th scope="col">Delete</th>                                   
+                    <th scope="col">Balance</th> 
+                    <th scope="col">Role</th> 
+                    <th scope="col">Delete</th> 
+                    <th scope="col">Promote</th>                                  
                   </tr>
                 </div>                        
               <tbody>
@@ -45,16 +45,26 @@
                   <td>{{ $user->getName() }}</td>
                   <td>{{ $user->getEmail() }}</td>
                   <td>{{ $user->getBalance() }}</td>
+                  <td>{{ $user->getRole() }}</td>
                   <td>
                     @if ($user->getRole() != 'admin')
-                      <form action="{{ route('admin.home.delete', $user->getId())}}" method="POST">
-                      @csrf
-                      @method('DELETE')
-                      <button class="btn btn-danger">
-                        <i class="bi-trash"></i>
-                      </button>
-                    </form>                                         
-                    @endif                    
+                      <form action="{{ route('admin.home.delete', $user->getId())}}" method="POST">            
+                        @method('DELETE')
+                        <button class="btn btn-danger">
+                          <i class="bi-trash"></i>
+                        </button>                       
+                      </form>                                                                                    
+                    @endif  
+                  </td>
+                  <td>
+                    @if ($user->getRole() != 'admin')
+                      <form action="{{ route('admin.home.promote', $user->getId())}}" method="POST">                    
+                        @method('PUT')                                                
+                        <button class="btn btn-success">
+                          <i class="bi-arrow-up-circle"></i>
+                        </button>                       
+                      </form>                                                                                    
+                    @endif                  
                 </tr>
                 @endforeach
               </tbody>

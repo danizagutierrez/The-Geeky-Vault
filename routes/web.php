@@ -33,10 +33,13 @@ Route::middleware('admin')->group(function () {
         ->name("admin.product.delete");
     Route::delete('/admin/home/{id}/delete', 'App\Http\Controllers\Admin\AdminHomeController@delete')
         ->name("admin.home.delete");
+    Route::put('/admin/home/{id}/promote', 'App\Http\Controllers\Admin\AdminProductController@promote')
+        ->name("admin.home.promote");
     Route::get('/admin/products/{id}/edit', 'App\Http\Controllers\Admin\AdminProductController@edit')
         ->name("admin.product.edit");
     Route::put('/admin/products/{id}/update', 'App\Http\Controllers\Admin\AdminProductController@update')
         ->name("admin.product.update");
+        
 });
 
 Route::middleware(['auth'])->group(function () {

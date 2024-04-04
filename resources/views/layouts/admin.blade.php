@@ -44,10 +44,8 @@
   <div class="copyright py-4 text-center text-white">
     <div class="container">
       <small>
-        Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank"
-          href="https://twitter.com/danielgarax">
-          Daniza
-        </a> - <b>Arthur</b> - <b>Moises</b>
+        Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank">
+        Daniza</a> - <b>Arthur</b> - <b>Moises</b>
       </small>
     </div>
   </div>

@@ -35,16 +35,16 @@
                     <a class="nav-link active" href="{{ route('login') }}">Login</a>
                     <a class="nav-link active" href="{{ route('register') }}">Register</a>
                     @else
+                    @if(Auth::user()->getRole('admin'))
+                    <a class="nav-link active" href="{{ route('admin.home.index') }}">Admin Page</a>
+                    @else
                     <a class="nav-link active" href="{{ route('user.cart') }}">Cart</a>
+                    @endif
                     <form id="logout" action="{{route('logout')}}" method="POST">
                     <a role="button"class="nav-link active" id="logout" onclick="getElementById('logout').submit();">Logout </a>
                     @csrf 
                     </form>
-
                     @endguest
-
-
-                    
                 </div>
             </div>
         </div>

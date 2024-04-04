@@ -11,7 +11,6 @@
       @endforeach
     </ul>
     @endif
-
     <form method="POST" action="{{ route('admin.product.update', ['id'=> $viewData['product']->getId()]) }}"
       enctype="multipart/form-data">
       @csrf
