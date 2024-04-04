@@ -9,6 +9,9 @@
     Your cart!
   </div>
 
+  <?php
+    $totalamount = 0;
+  ?>
   @if($viewData["cart"]->isEmpty())
   <div class="card-body">
     <p>No items in the cart.</p>
@@ -32,6 +35,8 @@
           <td>{{ $cartItem->product->product_name }}</td>
           <td>{{ $cartItem->order_qty }}</td>
           <td>{{ $cartItem->product->price }}</td>
+          <?php  $totalamount = $totalamount + $cartItem->product->price;
+          ?> 
           <td>
             <form action="{{ route('user.product.delete', ['id' => $cartItem->id]) }}" method="POST">
               @csrf
@@ -43,6 +48,11 @@
           </td>
         </tr>
         @endforeach
+            <tr>
+                <td colspan="2"></td>
+                <td>Total:</td>
+                <td>{{ $totalamount }}</td>
+            </tr>
       </tbody>
     </table>
     
