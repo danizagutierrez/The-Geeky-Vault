@@ -35,6 +35,7 @@
                     <a class="nav-link active" href="{{ route('login') }}">Login</a>
                     <a class="nav-link active" href="{{ route('register') }}">Register</a>
                     @else
+                    <a class="nav-link active" href="{{ route('user.cart') }}">Cart</a>
                     <form id="logout" action="{{route('logout')}}" method="POST">
                     <a role="button"class="nav-link active" id="logout" onclick="getElementById('logout').submit();">Logout </a>
                     @csrf 
@@ -43,7 +44,7 @@
                     @endguest
 
 
-                    <a class="nav-link active" href="{{ route('user.cart') }}">Cart</a>
+                    
                 </div>
             </div>
         </div>
