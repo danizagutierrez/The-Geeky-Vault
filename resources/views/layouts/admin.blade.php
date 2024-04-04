@@ -14,7 +14,7 @@
 <body>
   <div class="row g-0">
     <!-- sidebar -->
-    <div class="p-3 col fixed text-white bg-dark">
+    <div class="p-3 col fixed text-white bg-dark" >
       <a href="{{ route('admin.home.index') }}" class="text-white text-decoration-none">
         <span class="fs-4">Admin Panel</span>
       </a>
@@ -41,7 +41,7 @@
   </div>
 
   <!-- footer -->
-  <div class="copyright py-4 text-center text-white">
+  <div class="copyright py-4 text-center bg-dark text-white">
     <div class="container">
       <small>
         Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank">
