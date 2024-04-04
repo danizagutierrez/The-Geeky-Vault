@@ -28,12 +28,22 @@
 <div class="modal fade" id="addToCartModal" tabindex="-1" role="dialog" aria-labelledby="addToCartModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
+            <!-- check if there's an logged user if not send the user to login page -->
+            @if (!Auth::check())
+            <div class="modal-header">
+                <h5 class="modal-title" id="addToCartModalLabel">Please Login to add the item</h5>
+            </div>
+            <div class="modal-body">
+                You must be logged in to add items to the cart.
+            </div>
+            <div class="modal-footer">
+                <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
+            </div>
+            @else
             <div class="modal-header">
                 <h5 class="modal-title" id="addToCartModalLabel">Item Added to Cart</h5>
             </div>
-            <div class="modal-body">
-                Your item has been added to the cart.
-            </div>
+            @endif            
         </div>
     </div>
 </div>
@@ -61,10 +71,10 @@
         }
     });
 
-    // Hide the modal after 2 seconds
+    // Hide the modal after 3 seconds
     setTimeout(function() {
         $('#addToCartModal').modal('hide');
-    }, 2000); 
+    }, 3000); 
 
     $('#addToCartModal').on('hidden.bs.modal', function() {
             window.location.href = '{{ route("product.index") }}';

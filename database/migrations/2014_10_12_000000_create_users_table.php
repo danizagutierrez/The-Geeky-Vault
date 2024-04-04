@@ -29,7 +29,15 @@ return new class extends Migration
             'name' => 'Dani',
             'email' => 'dani@gmail.com',
             'password' => Hash::make('password'),
-            // Add other columns if necessary
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        
+        DB::table('users')->insert([
+            'name' => 'admin',
+            'email' => 'admin@here.com',
+            'password' => Hash::make('notSecret'),
+            'role' => 'admin',
             'created_at' => now(),
             'updated_at' => now(),
         ]);

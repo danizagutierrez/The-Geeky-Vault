@@ -37,7 +37,7 @@ class UserController extends Controller
                 'user_id' => $user->id,
                 'product_id' => $product->id
             ]);
-        //return redirect()->back()->with('success', 'Product added to cart successfully.');
+
         return response()->json(['success' => true, 'message' => 'Product added to cart successfully']);
         
     }
