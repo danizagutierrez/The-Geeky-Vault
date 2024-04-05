@@ -17,7 +17,7 @@
     @csrf
     @method('DELETE')
     <div  class="row d-flex justify-content-center align-content-center">
-        <button class="btn btn-danger col-3">Delete Account</button>
+        <button class="btn btn-danger col-3" name="delacc">Delete Account</button>
     </div>
   </form>  
 </div>
