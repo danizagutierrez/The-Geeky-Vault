@@ -20,10 +20,11 @@ class AdminHomeController extends Controller
         User::destroy($id);
         return back();
     }
+    
     public function promote($id)
     {      
         $user = User::findOrFail($id);
-        $user->setRole('admin');    
+        $user->role = 'admin';    
         $user->save();
         return redirect()->route('admin.home.index');
     }

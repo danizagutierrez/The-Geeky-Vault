@@ -75,6 +75,7 @@ class UserController extends Controller
         $order = new Order();
         $order->user()->associate($user);
         $order->save();
+
     
         // Retrieve cart items
         $cartItems = $user->cart()->get();

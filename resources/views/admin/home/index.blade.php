@@ -58,7 +58,8 @@
                   </td>
                   <td>
                     @if ($user->getRole() != 'admin')
-                      <form action="{{ route('admin.home.promote', $user->getId())}}" method="POST">                    
+                      <form action="{{ route('admin.home.promote', $user->getId())}}" method="POST">  
+                      @csrf                  
                         @method('PUT')                                                
                         <button class="btn btn-success">
                           <i class="bi-arrow-up-circle"></i>
