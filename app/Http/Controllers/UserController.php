@@ -30,12 +30,18 @@ class UserController extends Controller
     {
         $viewData = [];
         $user = auth()->user();
+
         $viewData["title"] = "The Geeky Vault";
         $viewData["subtitle"] = "Your Profile!";
         $viewData["name"] = $user->getName();
         $viewData["email"] =  $user->getEmail();
         $viewData["password"] =  $user->getPassword();
         $viewData["user_id"] = $user->getId();
+
+        $orders = Order::where('user_id')
+        ->get();
+        $viewData["orders"] = $orders;
+
         return view('user.show')->with("viewData", $viewData);
     }
 
