@@ -40,6 +40,7 @@
                     @endif
                     @if (Auth::user()->role == 'client')
                     <a class="nav-link active" href="{{ route('user.cart') }}">Cart</a>
+                    <a class="nav-link active" href="{{ route('user.show') }}">Profile</a>
                     @endif
                     <form id="logout" action="{{route('logout')}}" method="POST">
                     <a role="button"class="nav-link active" id="logout" onclick="getElementById('logout').submit();">Logout </a>

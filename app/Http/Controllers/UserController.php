@@ -12,12 +12,10 @@ use App\Models\OrderItem;
 class UserController extends Controller
 {
 
-    
     public function __construct()
     {
         $this->middleware('auth');
     }
-
 
     public function cart(){
 
@@ -28,10 +26,10 @@ class UserController extends Controller
         return view('user.cart')->with("viewData", $viewData);
     }
 
-    public function show($id)
+    public function show()
     {
         $viewData = [];
-        $user = User::findOrFail($id);
+        $user = auth()->user();
         $viewData["title"] = "The Geeky Vault";
         $viewData["subtitle"] = "Your Profile!";
         $viewData["name"] = $user->getName();
