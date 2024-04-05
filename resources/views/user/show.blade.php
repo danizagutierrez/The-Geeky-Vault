@@ -10,6 +10,7 @@
       <div class="card-body">
         <p class="card-text"><b>Name:</b> {{ $viewData["name"] }}</p>
         <p class="card-text"><b>E-mail:</b> {{ $viewData["email"] }}</p>
+        <p class="card-text"><b>Balance:</b> {{ $viewData["balance"] }}</p>
       </div>
     </div>
   </div>

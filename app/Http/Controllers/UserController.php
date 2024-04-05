@@ -19,10 +19,13 @@ class UserController extends Controller
 
     public function cart(){
 
+        $user = auth()->user();
+
         $viewData = [];
         $viewData["title"] = "The Geeky Vault";
         $viewData["subtitle"] = "Your cart!";
         $viewData["cart"] = auth()->user()->cart()->get(); // Retrieve the user's cart items
+        $viewData["user"] = $user;
         return view('user.cart')->with("viewData", $viewData);
     }
 
@@ -36,6 +39,7 @@ class UserController extends Controller
         $viewData["name"] = $user->getName();
         $viewData["email"] =  $user->getEmail();
         $viewData["password"] =  $user->getPassword();
+        $viewData["balance"] = $user->getBalance();
         $viewData["user_id"] = $user->getId();
 
         $orders = Order::where('user_id', $user->getId())
@@ -102,7 +106,7 @@ class UserController extends Controller
         $subtitle = "Your order is ready!";
 
     
-        return view('user.checkout', compact('order', 'title', 'subtitle'));
+        return view('user.checkout', compact('order', 'title', 'subtitle', 'user'));
     }
 
 

@@ -34,6 +34,9 @@
             <?php $order->total_amount = $totalamount;
             $order->order_status = "In progress";
             $order->save();
+            $previous = $user->balance;
+            $user->balance = $previous - $totalamount;
+            $user->save();
             ?>
             <tr>
                 <td colspan="2"></td>

@@ -55,14 +55,23 @@
             </tr>
       </tbody>
     </table>
+    <p>Your current balance is 
+    {{$previous = $viewData["user"]->getBalance()}} </p>
     
+    <?php $newBalance = $previous - $totalamount ?>
+
+    @if($viewData["user"]->getBalance() < $totalamount)
+    <div class="alert alert-danger" role="alert">
+    Insufficient funds! Try deleting a few items.
+    </div>
+    @else
     <form action="{{ route('user.checkout') }}" method="POST">
               @csrf
               <button class="btn btn-success">
                 <i class="bi-cash"> Check out</i>
               </button>
     </form>
-
+    @endif
   </div>
   @endif
 </div>
