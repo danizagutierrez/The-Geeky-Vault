@@ -13,30 +13,18 @@
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Product Name</th>
-                <th scope="col">Order Quantity</th>
-                <th scope="col">Price</th>
+                <th scope="col">Order ID</th>
+                <th scope="col">Order Date</th>
+                <th scope="col">Total Amount</th>
+                <th scope="col">Order Status</th>
             </tr>
         </thead>
-        <?php $totalamount = 0; ?>
         <tbody>
-            @foreach ($order->items as $orderItem)
             <tr>
-                <td>{{ $orderItem->id }}</td>
-                <td>{{ $orderItem->product->product_name }}</td>
-                <td>{{ $orderItem->quantity }}</td>
-                <td>{{ $orderItem->product->price }}</td>
-                <?php  $totalamount = $totalamount + $orderItem->product->price;
-                ?> 
-            </tr>
-            @endforeach
-            <?php $order->total_amount = $totalamount;
-            ?>
-            <tr>
-                <td colspan="2"></td>
-                <td>Total:</td>
-                <td>{{ $order->total_amount }}</td>
+                <td>{{ $viewData['order']->id }}</td>
+                <td>{{ $viewData['order']->order_date }}</td>
+                <td>{{ $viewData['order']->total_amount }}</td>
+                <td>{{ $viewData['order']->order_status }}</td>
             </tr>
 
         </tbody>

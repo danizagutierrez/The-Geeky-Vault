@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Models\Users;
+use App\Models\User;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderItem;
@@ -18,6 +18,7 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
+
     public function cart(){
 
         $viewData = [];
@@ -25,6 +26,25 @@ class UserController extends Controller
         $viewData["subtitle"] = "Your cart!";
         $viewData["cart"] = auth()->user()->cart()->get(); // Retrieve the user's cart items
         return view('user.cart')->with("viewData", $viewData);
+    }
+
+    public function show($id)
+    {
+        $viewData = [];
+        $user = User::findOrFail($id);
+        $viewData["title"] = "The Geeky Vault";
+        $viewData["subtitle"] = "Your Profile!";
+        $viewData["name"] = $user->getName();
+        $viewData["email"] =  $user->getEmail();
+        $viewData["password"] =  $user->getPassword();
+        $viewData["user_id"] = $user->getId();
+        return view('user.show')->with("viewData", $viewData);
+    }
+
+    public function delete_user($id)
+    {
+        User::destroy($id);
+        return redirect()->route('home.index');
     }
 
     public function addToCart(Product $product){
