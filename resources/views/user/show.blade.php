@@ -31,6 +31,7 @@
               <th scope="col">ID</th>
               <th scope="col">Order Date</th>
               <th scope="col">Order Status</th>
+              <th scope="col">Show Details</th>
             </tr>
           </thead>
           <tbody>
@@ -39,6 +40,13 @@
               <td>{{ $order->id }}</td>
               <td>{{ $order->order_date }}</td>
               <td>{{ $order->order_status }}</td>
+              <td>
+                <form action="{{ route('user.order', ['id' => $viewData["user_id"], 'oid' => $order->id]) }}" method="GET">
+                  <button class="btn btn-info">
+                    Information
+                  </button>
+                </form>
+              </td>
             </tr>
             @endforeach
           </tbody>

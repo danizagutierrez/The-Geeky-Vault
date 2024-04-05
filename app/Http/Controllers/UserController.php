@@ -38,7 +38,7 @@ class UserController extends Controller
         $viewData["password"] =  $user->getPassword();
         $viewData["user_id"] = $user->getId();
 
-        $orders = Order::where('user_id')
+        $orders = Order::where('user_id', $user->getId())
         ->get();
         $viewData["orders"] = $orders;
 
