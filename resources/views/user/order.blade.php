@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title')
-@section('subtitle')
+@section('title', $viewData["title"])
+@section('subtitle', $viewData["subtitle"])
 
 @section('content')
 <div class="card">
-  <div class="card-header">
+  <div class="card-header text-center">
     Your order!
   </div>
 
@@ -27,6 +27,37 @@
                 <td>{{ $viewData['order']->order_status }}</td>
             </tr>
 
+        </tbody>
+    </table>
+</div>
+
+</div>
+
+<div class="my-3"></div>
+
+
+<div class="card">
+  <div class="card-header text-center">
+    Order details:
+  </div>
+
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Product Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach ($viewData["order_items"] as $orderItem)
+        <tr>
+          <td>{{ $orderItem->product->product_name }}</td>
+          <td>{{ $orderItem->quantity }}</td>
+          <td>{{ $orderItem->product->price }}</td>
+        </tr>
+        @endforeach
         </tbody>
     </table>
     

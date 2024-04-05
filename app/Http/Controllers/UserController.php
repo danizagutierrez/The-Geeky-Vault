@@ -101,12 +101,18 @@ class UserController extends Controller
 
     public function order($id, $oid){
         $viewData = [];
-        $viewData["title"] = "The Geeky Vault";
-        $viewData["subtitle"] = "Your order";
+        $viewData["title"] = "Orders Archive";
+        $viewData["subtitle"] = "Orders Archive";
         $order = Order::where('user_id', $id)
                   ->where('id', $oid)
                   ->first();
         $viewData["order"] = $order;
+
+        $order_items = OrderItem::where('order_id', $oid)
+                  ->get();
+
+        $viewData["order_items"] = $order_items;
+
         return view ('user.order')->with("viewData", $viewData);
     }
     

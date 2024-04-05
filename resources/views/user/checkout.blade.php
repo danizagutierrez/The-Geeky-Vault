@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title')
-@section('subtitle')
+@section('title', $viewData["title"])
+@section('subtitle', $viewData["subtitle"])
 
 @section('content')
 <div class="card">
