@@ -49,25 +49,7 @@ class UserController extends Controller
         return back();
     }
 
-    // public function checkout(){
-
-    //     $viewData = [];
-    //     $viewData["title"] = "The Geeky Vault";
-    //     $viewData["subtitle"] = "Your order is ready!";
-    //     // Retrieve cart items
-    //     $cartItems = auth()->user()->cart()->get();
-
-    //     // Copy cart items to viewData
-    //     $viewData["cart"] = $cartItems;
-
-    //     // Clear the cart
-    //     foreach ($cartItems as $cartItem) {
-    //         $cartItem->delete();
-    //     }
-
-    //     return view('user.checkout')->with("viewData", $viewData);
-    // }
-
+    
     public function checkout(){
         $user = auth()->user();
     
@@ -96,6 +78,18 @@ class UserController extends Controller
 
     
         return view('user.checkout', compact('order', 'title', 'subtitle'));
+    }
+
+
+    public function order($id, $oid){
+        $viewData = [];
+        $viewData["title"] = "The Geeky Vault";
+        $viewData["subtitle"] = "Your order";
+        $order = Order::where('user_id', $id)
+                  ->where('id', $oid)
+                  ->first();
+        $viewData["order"] = $order;
+        return view ('user.order')->with("viewData", $viewData);
     }
     
 }

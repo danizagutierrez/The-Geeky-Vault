@@ -43,6 +43,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/user/cart', 'App\Http\Controllers\UserController@cart')->name('user.cart');
     Route::post('/add-to-cart/{product}', 'App\Http\Controllers\UserController@addToCart')->name('add-to-cart');
     Route::post('/user/checkout', 'App\Http\Controllers\UserController@checkout')->name('user.checkout');
+    Route::post('/user/{id}/order/{oid}', 'App\Http\Controllers\UserController@order')->name('user.order');
     Route::delete('/user/product/{id}/delete', 'App\Http\Controllers\UserController@delete')
         ->name("user.product.delete");
 });
