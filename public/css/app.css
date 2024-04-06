@@ -25,3 +25,10 @@ nav{
 .btn-danger {
     margin-bottom: 10px;
 }
+.custom-h3 {
+    text-align: center; 
+    color: #007bff; 
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 20px; /* Espaço superior para melhorar a aparência */
+  }

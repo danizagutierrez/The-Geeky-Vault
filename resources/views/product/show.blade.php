@@ -34,7 +34,7 @@
             <!-- check if there's an logged user if not send the user to login page -->
             @if (!Auth::check())
             <div class="modal-header">
-                <h5 class="modal-title" id="addToCartModalLabel">Please Login to add the item</h5>
+                <h5 class="modal-title" id="addToCartModalLabel">Please Login or Register to add the item</h5>
             </div>
             <div class="modal-body">
                 You must be logged in to add items to the cart.
