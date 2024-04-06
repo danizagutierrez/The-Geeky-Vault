@@ -6,7 +6,7 @@
 @section('content')
 <div class="card">
   <div class="card-header">
-    Your order!
+    <h3 class="custom-h3">Your order!</h3>
   </div>
 
   <div class="card-body">
@@ -15,8 +15,8 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Product Name</th>
-                <th scope="col">Order Quantity</th>
-                <th scope="col">Price</th>
+                <th scope="col">Item Quantity</th>
+                <th scope="col">Item Price</th>
             </tr>
         </thead>
         <?php $totalamount = 0; ?>

@@ -1,7 +1,7 @@
 @section('form')
 <div class="card mb-4">
   <div class="card-header">
-    Create Products
+    <h3>Create Products</h3>
   </div>
   <div class="card-body">
     @if($errors->any())

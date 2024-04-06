@@ -44,8 +44,8 @@
   <div class="copyright py-4 text-center bg-dark text-white">
     <div class="container">
       <small>
-        Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank">
-        Daniza</a> - <b>Arthur</b> - <b>Moises</b>
+        Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank"></a>
+        <em>Daniza</em> - <em>Arthur</em> - <em>Moises</em>
       </small>
     </div>
   </div>

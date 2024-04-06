@@ -4,7 +4,9 @@
 @section('subtitle', $viewData["subtitle"])
 
 @section('content')
+
 <div class="card mb-3">
+  <h3 class="custom-h3">User Details:</h3>
   <div class="row g-0">
     <div class="col-md-8">
       <div class="card-body">
@@ -23,6 +25,7 @@
   </form>  
 </div>
 <div class="card mb-3">
+  <h3 class="custom-h3">Orders History:</h3>
   <div class="row g-0">
     <div class="col-md-8">
       <div class="card-body">

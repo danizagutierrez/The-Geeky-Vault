@@ -3,7 +3,7 @@
 @section('content')
 <div class="card">
   <div class="card-header">
-    Admin Panel - Home Page
+    <h2>Admin Panel - Home Page</h2>
   </div>
   <div class="card-body">
     Welcome to the Admin Panel, use the sidebar
@@ -14,7 +14,7 @@
       <div class="col">
         <div class="card">
           <div class="card-header">
-            Admin Data
+            <h3>Admin Data</h3>
           </div>
           <div class="card-body">
             <p>Admin Name: {{ Auth::user()->name }}</p>
@@ -24,7 +24,7 @@
             <table class="table">
               <thead>
                 <div class="card-header">
-                  Current Users
+                  <h3>Current Users</h3>
                 </div>
               </thead>   
                 <div class="card-body">
