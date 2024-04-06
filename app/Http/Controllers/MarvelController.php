@@ -15,7 +15,6 @@ class MarvelController extends Controller
         $privateKey = '40e763d39f54a411249badfa11ac475b17c069eb';
         $hash = md5($timestamp . $privateKey . $publicKey);
 
-
         $response = Http::get('https://gateway.marvel.com/v1/public/characters', [
             'apikey' => $publicKey,
             'ts'=> $timestamp,

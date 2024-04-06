@@ -6,7 +6,7 @@
 @section('content')
 <div class="card">
   <div class="card-header text-center">
-    Your order!
+    <h3 class="custom-h3 ">Your order!</h3>
   </div>
 
   <div class="card-body">
@@ -38,7 +38,7 @@
 
 <div class="card">
   <div class="card-header text-center">
-    Order details:
+    <h3 class="custom-h3 "> Order details:</h3>
   </div>
 
   <div class="card-body">
