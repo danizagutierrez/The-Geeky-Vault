@@ -19,6 +19,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-4">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home.index') }}">Geeky Vault</a>
+            <div class="vr bg-white mx-2 d-none d-lg-block"></div>
+            <a class="navbar-brand" href="{{ route('marvel.index') }}">Marvel Partnership</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
